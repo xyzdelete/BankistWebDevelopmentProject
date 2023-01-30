@@ -151,7 +151,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(function (section) {
     sectionObserver.observe(section);
-    // section.classList.add("section--hidden");
+    section.classList.add("section--hidden");
 });
 
 // Lazy loading images
@@ -159,7 +159,6 @@ const imgTargets = document.querySelectorAll("img[data-src]");
 
 const loadImg = function (entries, observer) {
     const [entry] = entries;
-    console.log(entry);
 
     if (!entry.isIntersecting) return;
 
@@ -252,8 +251,6 @@ const slider = function () {
     btnLeft.addEventListener("click", prevSlide);
 
     document.addEventListener("keydown", function (e) {
-        console.log(e);
-
         if (e.key === "ArrowLeft") {
             prevSlide();
         } else if (e.key === "ArrowRight") {
@@ -271,3 +268,17 @@ const slider = function () {
     });
 };
 slider();
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    console.log("HTML parsed and DOM tree built!", e);
+});
+
+window.addEventListener("load", (e) => {
+    console.log("Page fully loaded", e);
+});
+
+// window.addEventListener("beforeunload", (e) => {
+//     e.preventDefault();
+//     console.log(e);
+//     e.returnValue = "";
+// });
