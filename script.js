@@ -42,19 +42,6 @@ btnScrollTo.addEventListener("click", function (e) {
 
 ////////////////////////////////////////////////////////////////
 // Page navigation
-
-// document.querySelectorAll(".nav__link").forEach(function (el) {
-//     el.addEventListener("click", function (e) {
-//         e.preventDefault();
-//         const id = this.getAttribute("href");
-//         document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-//         console.log(id);
-//     });
-// });
-
-// 1. Add event listener to common parent element
-// 2. Determine what element originated the event
-
 document.querySelector(".nav__links").addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -66,9 +53,7 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 });
 
 ////////////////////////////////////////////////////////////////
-
 // Tabbed component
-
 tabsContainer.addEventListener("click", function (e) {
     const clicked = e.target.closest(".operations__tab");
     console.log(clicked);
@@ -181,7 +166,6 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach((img) => imgObserver.observe(img));
 
 // Slider
-
 const slider = function () {
     const slides = document.querySelectorAll(".slide");
     const btnLeft = document.querySelector(".slider__btn--left");
@@ -276,9 +260,3 @@ document.addEventListener("DOMContentLoaded", (e) => {
 window.addEventListener("load", (e) => {
     console.log("Page fully loaded", e);
 });
-
-// window.addEventListener("beforeunload", (e) => {
-//     e.preventDefault();
-//     console.log(e);
-//     e.returnValue = "";
-// });
